@@ -1,0 +1,19 @@
+{
+  "name": "automation-exercise-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run"
+  },
+  "keywords": [
+    "e2e",
+    "cypress"
+  ],
+  "author": "Glecinilson Braga da Silva",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^11.2.0"
+  }
+}
