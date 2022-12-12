@@ -7,48 +7,34 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-
-Cypress.Commands.add('deleteAccount', () => {
-  cy.get(`a:contains("Delete Account")`)
-    .click()
-
-  cy.get(`[data-qa="account-deleted"]`)
-    .children(`b`)
-    .should(`be.visible`)
-    .and(`have.text`, `Account Deleted!`)
-
-  cy.get(`[data-qa="continue-button"]`)
-    .click()
-})
-
-Cypress.Commands.add('fillUpRegisterUserForm', (USER) => {
+Cypress.Commands.add('fillUpRegisterUserForm', (user) => {
   cy.get(`[id="id_gender${2}"]`)
     .check()
 
   cy.get(`[data-qa="name"]`)
     .should(`be.visible`)
-    .and(`have.value`, USER.FIRST_NAME)
+    .and(`have.value`, user.name)
 
   cy.get(`[data-qa="email"]`)
     .should(`be.visible`)
     .and('not.be.enabled')
-    .and(`have.value`, USER.EMAIL)
+    .and(`have.value`, user.email)
 
   cy.get(`[data-qa="password"]`)
     .should(`be.visible`)
-    .type(USER.PASSWORD, { log: false })
+    .type(user.password, { log: false })
 
   cy.get(`[data-qa="days"]`)
     .should(`be.visible`)
-    .select(USER.BIRTHDAY.DAY)
+    .select(user.birth_date)
 
   cy.get(`[data-qa="months"]`)
     .should(`be.visible`)
-    .select(USER.BIRTHDAY.MONTH)
+    .select(user.birth_month)
 
   cy.get(`[data-qa="years"]`)
     .should(`be.visible`)
-    .select(USER.BIRTHDAY.YEAR)
+    .select(user.birth_year)
 
   cy.get(`[id="newsletter"]`)
     .check()
@@ -58,39 +44,39 @@ Cypress.Commands.add('fillUpRegisterUserForm', (USER) => {
 
   cy.get(`[data-qa="first_name"]`)
     .should(`be.visible`)
-    .type(USER.FIRST_NAME)
+    .type(user.firstname)
 
   cy.get(`[data-qa="last_name"]`)
     .should(`be.visible`)
-    .type(USER.LAST_NAME)
+    .type(user.lastname)
 
   cy.get(`[data-qa="company"]`)
     .should(`be.visible`)
-    .type(USER.COMPANY)
+    .type(user.company)
 
   cy.get(`[data-qa="address"]`)
     .should(`be.visible`)
-    .type(USER.ADDRESS)
+    .type(user.address1)
 
   cy.get(`[data-qa="country"]`)
     .should(`be.visible`)
-    .select(USER.COUNTRY)
+    .select(user.country)
 
   cy.get(`[data-qa="state"]`)
     .should(`be.visible`)
-    .type(USER.STATE)
+    .type(user.state)
 
   cy.get(`[data-qa="city"]`)
     .should(`be.visible`)
-    .type(USER.CITY)
+    .type(user.city)
 
   cy.get(`[data-qa="zipcode"]`)
     .should(`be.visible`)
-    .type(USER.ZIPCODE)
+    .type(user.zipcode)
 
   cy.get(`[data-qa="mobile_number"]`)
     .should(`be.visible`)
-    .type(USER.MOBILE_NUMBER)
+    .type(user.mobile_number)
 
   cy.get('[data-qa="create-account"]')
     .click()

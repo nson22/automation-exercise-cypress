@@ -1,18 +1,18 @@
 {
-  "FIRST_NAME": "Object",
-  "LAST_NAME": "Edge",
-  "EMAIL": "object.edge@mail.com",
-  "PASSWORD": "password",
-  "BIRTHDAY": {
-    "DAY": 22,
-    "MONTH": 8,
-    "YEAR": 1983
-  },
-  "COMPANY": "Object Edge",
-  "ADDRESS": "Rua Niger, n13, QD 124",
-  "COUNTRY": "United States",
-  "STATE": "California",
-  "CITY": "Open Creak",
-  "ZIPCODE": "US-99-00",
-  "MOBILE_NUMBER": "555-555-555"
+  "name": "Object",
+  "email": "object.edge@mail.com",
+  "password": "password",
+  "title": "Mr",
+  "birth_date": "22",
+  "birth_month": "8",
+  "birth_year": "1983",
+  "firstname": "Object",
+  "lastname": "Edge",
+  "company": "Object Edge",
+  "address1": "Rua Niger, n13, QD 124",
+  "country": "United States",
+  "state": "California",
+  "city": "Open Creak",
+  "zipcode": "US-99-00",
+  "mobile_number": "555-555-555"
 }
