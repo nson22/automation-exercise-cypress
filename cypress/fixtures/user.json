@@ -1,0 +1,18 @@
+{
+  "name": "Object",
+  "email": "object.edge@mail.com",
+  "password": "password",
+  "title": "Mr",
+  "birth_date": "22",
+  "birth_month": "8",
+  "birth_year": "1983",
+  "firstname": "Object",
+  "lastname": "Edge",
+  "company": "Object Edge",
+  "address1": "Rua Niger, n13, QD 124",
+  "country": "United States",
+  "state": "California",
+  "city": "Open Creak",
+  "zipcode": "US-99-00",
+  "mobile_number": "555-555-555"
+}
