@@ -1,7 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Mon Dec 12 21:52:07 AMT 2022","Mon Dec 12 21:53:02 AMT 2022","55840","User","Login","","","","should be possible to login with correct email and password",""
-"passed","Mon Dec 12 21:53:03 AMT 2022","Mon Dec 12 21:53:19 AMT 2022","16556","User","Login","","","","should not be possible to login with incorrect email and password",""
-"passed","Mon Dec 12 21:53:19 AMT 2022","Mon Dec 12 21:53:38 AMT 2022","18747","User","Login","","","","should be possible to logout",""
-"passed","Mon Dec 12 21:54:35 AMT 2022","Mon Dec 12 21:54:52 AMT 2022","16967","User","Register","","","","should not be able to register an existing user",""
-"passed","Mon Dec 12 21:53:47 AMT 2022","Mon Dec 12 21:54:35 AMT 2022","48483","User","Register","","","","should be able to register user",""
-"passed","Mon Dec 12 21:52:02 AMT 2022","Mon Dec 12 21:52:04 AMT 2022","1371","API Register","User","","","","should be able to register user through API",""
