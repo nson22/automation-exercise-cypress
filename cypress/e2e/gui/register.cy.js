@@ -1,8 +1,10 @@
 /// <reference types="Cypress"/>
-import user from './../../../fixtures/user.json'
+
+import user from '../../fixtures/user.json'
 
 describe(`User`, () => {
-  context('Register user', () => {
+
+  context('Register', () => {
     beforeEach(() => {
       cy.APIDeleteUserAccount(user.email, user.password)
 
@@ -26,13 +28,12 @@ describe(`User`, () => {
         `**/account_created`
       ).as("getAccountCreatedPage")
 
+      cy.visit(`/`)
     });
 
-    it(`TC01 - should be able to register user`, () => {
-
-      cy.visit(`/`)
-
+    it(`should be able to register user`, () => {
       cy.wait('@getHomePage')
+
       cy.url().should('include', '/')
 
       cy.get(`a:contains("Login")`).click()
@@ -81,20 +82,19 @@ describe(`User`, () => {
       cy.get('[data-qa="continue-button"]')
         .click()
 
-
     });
 
-    it('TC02 - should not be able to register an existing user', () => {
+    it('should not be able to register an existing user', () => {
       cy.APICreateUserAccount(user)
 
       cy.visit(`/login`)
+
+      cy.wait('@getLoginPage')
 
       cy.url().should('include', '/login')
 
       cy.get(`h2:contains("New User Signup!")`)
         .should('be.visible')
-
-      cy.wait('@getLoginPage')
 
       cy.get(`[data-qa="signup-name"]`)
         .should(`be.visible`)
@@ -112,9 +112,6 @@ describe(`User`, () => {
 
       cy.get('p:contains("Email Address already exist!")')
         .should('be.visible')
-
     });
-
-
-  })
+  });
 })

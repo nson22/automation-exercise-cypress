@@ -2,8 +2,8 @@
 
 import user from '../../fixtures/user.json'
 
-describe('API Register user', () => {
-  context('POST user', () => {
+describe('API Register', () => {
+  context('User', () => {
     it('should be able to register user through API', () => {
 
       cy.log('>>>>> Preconditions')

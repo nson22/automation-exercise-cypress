@@ -12,6 +12,6 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-
-import './gui/gui_commands'
-import './api/api_commands'
+import '@shelex/cypress-allure-plugin';
+import './gui/commands'
+import './api/commands'
