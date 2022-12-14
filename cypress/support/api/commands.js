@@ -18,3 +18,10 @@ Cypress.Commands.add('APICreateUserAccount', (user) => {
     body: user
   })
 })
+
+Cypress.Commands.add('APIAllProducts', () => {
+  cy.request({
+    method: 'GET',
+    url: '/api/productsList',
+  })
+})

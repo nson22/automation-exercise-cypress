@@ -7,7 +7,7 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-Cypress.Commands.add('fillUpRegisterUserForm', (user) => {
+Cypress.Commands.add('fillUpRegisterUserForm', function (user) {
   cy.get(`[id="id_gender${2}"]`)
     .check()
 
@@ -79,5 +79,26 @@ Cypress.Commands.add('fillUpRegisterUserForm', (user) => {
     .type(user.mobile_number)
 
   cy.get('[data-qa="create-account"]')
+    .click()
+})
+
+Cypress.Commands.add('openHeaderLink', function (link) {
+  cy.get(`a:contains(" ${link}")`)
+    .first()
+    .click()
+})
+
+Cypress.Commands.add('fillUpUserEmailAndPassword', function (email, password) {
+
+  cy.get(`[data-qa="login-email"]`)
+    .should('be.visible')
+    .type(email)
+
+  cy.get(`[data-qa="login-password"]`)
+    .should('be.visible')
+    .type(password, { log: false })
+
+  cy.get(`[data-qa="login-button"]`)
+    .should('be.visible')
     .click()
 })

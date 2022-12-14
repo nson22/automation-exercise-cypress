@@ -36,7 +36,8 @@ describe(`User`, () => {
 
       cy.url().should('include', '/')
 
-      cy.get(`a:contains("Login")`).click()
+      cy.openHeaderLink('Login')
+
       cy.url().should('include', '/login')
 
       cy.get(`h2:contains("New User Signup!")`)
@@ -87,7 +88,7 @@ describe(`User`, () => {
     it('should not be able to register an existing user', () => {
       cy.APICreateUserAccount(user)
 
-      cy.visit(`/login`)
+      cy.openHeaderLink('Login')
 
       cy.wait('@getLoginPage')
 

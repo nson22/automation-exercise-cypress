@@ -19,10 +19,11 @@ describe('User', () => {
         '**/login'
       ).as('getLoginPage')
 
-      cy.visit('/login')
+      cy.visit('/')
     });
 
-    it('should be possible to login with correct email and password', () => {
+    it.only('should be possible to login with correct email and password', () => {
+      cy.openHeaderLink('Login')
 
       cy.wait('@getLoginPage')
 
@@ -32,25 +33,13 @@ describe('User', () => {
       cy.get('h2:contains("Login to your account")')
         .should('be.visible')
 
-      cy.get('[data-qa="login-email"]')
-        .should('be.visible')
-        .type(user.email)
-
-      cy.get('[data-qa="login-password"]')
-        .should('be.visible')
-        .type(user.password, { log: false })
-
-      cy.get('[data-qa="login-button"]')
-        .should('be.visible')
-        .click()
+      cy.fillUpUserEmailAndPassword(user.email, user.password)
 
       cy.get('a:contains("Logged in as")')
         .children(`b:contains("${user.firstname}")`)
         .should('be.visible')
 
-      cy.get('a:contains("Delete Account")')
-        .should('be.visible')
-        .click()
+      cy.openHeaderLink('Delete Account')
 
       cy.get('h2:contains("Account Deleted!")')
         .should('be.visible')
@@ -67,6 +56,8 @@ describe('User', () => {
     });
 
     it('should not be possible to login with an incorrect email and password', () => {
+      cy.openHeaderLink('Login')
+
       cy.wait('@getLoginPage')
 
       cy.url()
@@ -75,17 +66,7 @@ describe('User', () => {
       cy.get('h2:contains("Login to your account")')
         .should('be.visible')
 
-      cy.get('[data-qa="login-email"]')
-        .should('be.visible')
-        .type('incorrect.user.email@mail.com')
-
-      cy.get('[data-qa="login-password"]')
-        .should('be.visible')
-        .type('incorrect.user.password', { log: false })
-
-      cy.get('[data-qa="login-button"]')
-        .should('be.visible')
-        .click()
+      cy.fillUpUserEmailAndPassword(user.email, 'user.password')
 
       cy.get('p:contains("Your email or password is incorrect!")')
         .should('be.visible')
@@ -93,6 +74,7 @@ describe('User', () => {
     });
 
     it('should be possible to logout', () => {
+      cy.openHeaderLink('Login')
 
       cy.wait('@getLoginPage')
 
@@ -102,20 +84,9 @@ describe('User', () => {
       cy.get('h2:contains("Login to your account")')
         .should('be.visible')
 
-      cy.get('[data-qa="login-email"]')
-        .should('be.visible')
-        .type(user.email)
+      cy.fillUpUserEmailAndPassword(user.email, user.password)
 
-      cy.get('[data-qa="login-password"]')
-        .should('be.visible')
-        .type(user.password, { log: false })
-
-      cy.get('[data-qa="login-button"]')
-        .should('be.visible')
-        .click()
-
-      cy.get('a:contains("Logout")')
-        .click()
+      cy.openHeaderLink('Logout')
 
       cy.url()
         .should('contain', '/login')
